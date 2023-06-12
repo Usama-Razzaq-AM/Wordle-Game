@@ -104,7 +104,7 @@ async function init() {
                 }
         }
 
-
+        if(screen.width>500) {
         document.addEventListener("keydown", function handleKeyPress(event) {
                 
                 if(done || !isLoaded) {
@@ -124,7 +124,32 @@ async function init() {
                 } else {
                         //do nothing
                 }
-        });
+        });} else {
+                document.addEventListener("touchend", function handleKeyPress(event){
+                        if(done || !isLoaded) {
+                                //do nothing
+                                return;
+                        }
+                        
+                        let action=event.key;
+        
+                        if (action==="Enter") {
+                        commit();
+                        } else if (action==="Backspace") {
+                        backspace();
+                        } else if (isLetter(action)) {
+                                addLetter(action.toUpperCase());
+                        } else {
+                                //do nothing
+                        }
+                                
+                        })
+                        document.getElementById("letter-0").contentEditable=true;
+                        document.getElementById("letter-1").contentEditable=true;
+                        document.getElementById("letter-2").contentEditable=true;
+                        document.getElementById("letter-3").contentEditable=true;
+                        document.getElementById("letter-4").contentEditable=true;
+                }
 
         document.getElementById("enter-btn").addEventListener("click", function(){
                 if(!haveWon) {
