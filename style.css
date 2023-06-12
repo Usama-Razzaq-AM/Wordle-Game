@@ -96,7 +96,7 @@ button {
 }
 
 .invalid {
-    animation: flash 1s;
+    animation: flash 3s;
 }
 
 @keyframes flash {
