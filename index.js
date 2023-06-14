@@ -149,6 +149,14 @@ async function init() {
                         document.getElementById("letter-2").contentEditable=true;
                         document.getElementById("letter-3").contentEditable=true;
                         document.getElementById("letter-4").contentEditable=true;
+
+                        document.getElementById("enter-btn").addEventListener("click", function(){
+                                if(!haveWon) {
+                                        commit();
+                                }
+                                return;
+                        });
+
                 }
 
         document.getElementById("enter-btn").addEventListener("click", function(){
